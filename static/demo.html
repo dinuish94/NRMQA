@@ -1,0 +1,354 @@
+<!doctype html>
+<html class="no-js" lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>AIvis</title>
+  <meta name="description" content="A free and modern UI toolkit for web makers based on the popular Bootstrap 4 framework.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+    crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="static/css/shards.min.css?v=2.1.0">
+  <link rel="stylesheet" href="static/css/shards-demo.min.css?v=2.1.0">
+</head>
+
+<body>
+  <div class="loader">
+    <div class="page-loader"></div>
+  </div>
+
+  <!-- Floating Shards -->
+  <img src="static/images/demo/shard-1-5x-3.png" alt="Shard" class="shard">
+
+  <!-- Welcome Section -->
+  <div class="welcome d-flex justify-content-center flex-column">
+    <div class="inner-wrapper mt-auto mb-auto">
+      <h1 class="slide-in">AIvis</h1>
+      <p class="slide-in">Build intelligent conversational agents on the leading deep learning platform</p>
+      <div class="action-links slide-in">
+        <button onclick="scrollToDemo()" class="btn btn-primary btn-pill align-self-center mr-2">
+          <i class="fa fa-download mr-1"></i> Demo</button>
+        <button data-scroll-to="#something" id="scroll-to-content" class="btn btn-outline-light btn-pill align-self-center">Learn
+          More</button>
+      </div>
+    </div>
+    <!-- <div class="product-by">
+      <a href="https://designrevision.com" target="_blank">
+        <p>A Product By</p>
+        <img src="https://dgc2qnsehk7ta.cloudfront.net/general/designrevision-logo.png" alt="DesignRevision - Making powerful tools for web professionals">
+      </a>
+    </div> -->
+  </div>
+
+  <!-- Page Content -->
+  <div class="page-content">
+    <!-- Content -->
+    <div class="content clearfix">
+
+      <div id="introduction" class="container mb-5">
+        <div class="section-title col-lg-8 col-md-10 ml-auto mr-auto">
+          <p class="lead">AIvis is a deep learning and reinforcement learning based question answering system 
+          which has outperformed human accuracy for all 20 bAbI tasks.</p>
+
+        </div>
+      </div>
+
+      <!-- Documentation -->
+      <div id="demo" class="bg-white">
+        <div class="section-title container ml-auto mr-auto py-5">
+          <div class="col-lg-8 col-md-10 ml-auto mr-auto py-5">
+            <div class="card mb-auto" style="margin-top:5%">
+              <!-- <img class="card-img-top" src="images/demo/stock-photos/3.jpg" alt="Card image cap"> -->
+              <div class="card-body">
+                <h4 class="card-title">Demo Chat</h4>
+                <h4>Tasks</h4>
+                <div class="col-lg-10 col-md-12 ml-auto mr-auto mb-auto">
+                  <div class="row">
+                    <select class="custom-select" id="task-selector" style="width: 90%" required="">
+                      <option value="">Select a task</option>
+                      <option value="1">Basic factoid QA with single supporting fact</option>
+                      <option value="2">Factoid QA with two supporting facts</option>
+                      <option value="3">Factoid QA with three supporting facts</option>
+                      <option value="4">Two argument relations: subject vs. object</option>
+                      <option value="5">Three argument relations</option>
+                      <option value="6">Yes/No questions</option>
+                      <option value="7">Counting</option>
+                      <option value="8">Lists/Sets</option>
+                      <option value="9">Simple Negation</option>
+                      <option value="10">Indefinite Knowledge</option>
+                      <option value="11">Basic coreference</option>
+                      <option value="12">Conjunction</option>
+                      <option value="13">Compound coreference</option>
+                      <option value="14">Time manipulation</option>
+                      <option value="15">Basic deduction</option>
+                      <option value="16">Basic induction</option>
+                      <option value="17">Positional reasoning</option>
+                      <option value="18">Reasoning about size</option>
+                      <option value="19">Path finding</option>
+                      <option value="20">Reasoning about agent's motivation</option>
+                    </select>
+                  </div>
+                </div>
+                <h4 style="margin-top: 5%">Words</h4>
+                <div class="col-lg-10 col-md-12 ml-auto mr-auto word-container">
+                  <p style="margin-left: 20%">Words to build the context</p>
+                </div>
+                <h4 style="margin-top: 5%">Context</h4>
+                <div class="col-lg-10 col-md-12 ml-auto mr-auto mb-auto">
+                  <div class="row mb-2" style="width: 95%">
+                    <textarea rows="4" class="form-control context" placeholder="the sample context"></textarea>
+                  </div>
+                </div>
+                <h4 style="margin-top: 5%">Question</h4>
+                <div class="col-lg-10 col-md-12 ml-auto mr-auto mb-auto">
+                  <div class="row mb-2" style="width: 95%">
+                    <input type="text" class="form-control question" name="question" placeholder="the sample question" />
+                  </div>
+                </div>
+                <div class="col-lg-10 col-md-12 mb-5" style="margin-top:5%; margin-left: 40%">
+                  <div class="row">
+                    <button type="button" class="btn btn-outline-primary btn-pil" onclick="sendNewContextAndQuestion()"
+                      style="align-self: center">Ask</button>
+                  </div>
+                </div>
+                <div class="col-lg-10 col-md-12 answer-column" style="margin-left: 30%">
+                  <div class="row">
+                    <p><b id="answer">Sample answer would come here</b></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Documentation -->
+      <!-- <div id="documentation" class="bg-white">
+        <div class="section-title container ml-auto mr-auto py-5">
+          <div class="col-lg-8 col-md-10 ml-auto mr-auto py-5">
+            <h1 class="mb-2 text-center">📘</h1>
+            <h3 class="mb-4 text-center">Read the Docs</h3>
+            <p class="text-center">Make sure you check out the documentation and learn more about all the available
+              components and how to use them.</p>
+            <a class="d-table ml-auto mr-auto" href="https://designrevision.com/docs/shards">
+              <button class="btn btn-pill btn-outline-primary">
+                <i class="fa fa-book mr-1"></i> Documentation</button>
+            </a>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Footer CTA -->
+      <div class="footer-cta bg-dark" id="something">
+        <div class="container my-5">
+          <div class="py-5">
+            <div class="text-center">
+              <h1>🛠</h1>
+              <h2 class="text-white">Do you want to try your own dataset?</h2>
+              <p class="text-muted col-lg-8 col-md-10 ml-auto mr-auto">What are you waiting for?
+                <b>
+                  <u>Try uploading it to our platform!
+                  </u>
+                </b> Can't wait to see what you come up with!</p>
+            </div>
+
+            <div class="share d-table d-sm-flex mx-auto justify-content-center mt-5">
+              <a href="https://twitter.com/intent/tweet?url=https://designrevision.com/download/shards&text=I%27m+in+love+with+Shards%2C+a+free+Bootstrap+4+UI+kit+by+%40DesignRevision+%23ui+%23design+%23free+%23bootstrap"
+                class="btn btn-pill d-table d-sm-inline-block mx-auto mx-sm-2 btn-primary mr-4 mb-3" title="Share Shards on Twitter">
+                <i class="fa fa-twitter mr-1"></i> Share on Twitter</a>
+              <a href="https://www.facebook.com/sharer/sharer.php?u=https://designrevision.com/download/shards" class="btn btn-pill d-table d-sm-inline-block mx-auto mx-sm-2 btn-primary mr-4 mb-3"
+                title="Share on Facebook">
+                <i class="fa fa-facebook mr-1"></i> Share on Facebook</a>
+              <a href="https://www.linkedin.com/shareArticle?mini=true&title=Shards+%E2%80%94+A+free+and+modern+Bootstrap+4+UI+kit&url=https://designrevision.com/download/shards"
+                class="btn btn-pill d-table d-sm-inline-block mx-auto mx-sm-2 btn-primary mr-4 mb-3" title="Share on LinkedIn">
+                <i class="fa fa-linkedin mr-1"></i> Share on LinkedIn</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="main-footer py-5">
+        <p class="text-muted text-center small p-0 mb-4">&copy; Copyright 2018 — DesignRevision</p>
+        <div class="social d-table mx-auto">
+          <a class="twitter mx-3 h4 d-inline-block text-secondary" href="https://twitter.com/DesignRevision" target="_blank">
+            <i class="fa fa-twitter"></i>
+            <span class="sr-only">View our Twitter Profile</span>
+          </a>
+          <a class="facebook mx-3 h4 d-inline-block text-secondary" href="https://www.facebook.com/designrevision"
+            target="_blank">
+            <i class="fa fa-facebook"></i>
+            <span class="sr-only">View our Facebook Profile
+              <span>
+          </a>
+          <a class="github mx-3 h4 d-inline-block text-secondary" href="https://github.com/designrevision" target="_blank">
+            <i class="fa fa-github"></i>
+            <span class="sr-only">View our GitHub Profile</span>
+          </a>
+        </div>
+      </footer>
+    </div>
+
+    <!-- JavaScript -->
+    <div id="fb-root"></div>
+    <script>
+      (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.10&appId=1662270373824826";
+        fjs.parentNode.insertBefore(js, fjs);
+      }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+      crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+      crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+      crossorigin="anonymous"></script>
+    <script src="static/js/shards.min.js"></script>
+    <script src="static/js/demo.min.js"></script>
+
+</body>
+<script>
+  const taskSelector = document
+    .querySelector('#task-selector')
+    .addEventListener('change', selectTask);
+
+  function scrollToDemo() {
+    $('html,body').animate({
+        scrollTop: $("#demo").offset().top
+      },
+      'slow');
+  }
+
+  function selectTask(event) {
+    let selectedTaskId = event.target.value;
+    document.querySelector('#answer').innerText = '';
+    document.querySelector('.context').value = '';
+    document.querySelector('.context').placeholder = '';
+    document.querySelector('.question').value = '';
+    document.querySelector('.question').placeholder = '';
+    document.querySelector('.word-container').innerHTML = '';
+    document.querySelector('.word-container').innerText = 'Words to be loaded';
+
+    getWords(selectedTaskId);
+    // getSampleContextAndQuestion(selectedTaskId);
+  }
+
+  function getWords(taskId) {
+    const xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function (response) {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log(this.responseText, 'this.responseText');
+        loadWords(JSON.parse(this.responseText).vocab);
+        // loadWords(['gravity', 'parity', 'clarity', 'charity', 'spagetti', 'grafitti',
+        //   'gravity', 'parity', 'clarity', 'charity', 'spagetti', 'grafitti'
+        // ]);
+      }
+    }
+
+    xhttp.open('get', `http://localhost:5000/vocab?task=${taskId}`, true);
+    xhttp.send();
+  }
+
+  function getSampleContextAndQuestion(taskId) {
+    const xhttp = new XMLHttpRequest();
+
+    xhttp.onreadystatechange = function (response) {
+      if (this.readyState == 4 && this.status == 200) {
+        console.log(response, 'response', this.responseText);
+        changeContextAndQuestion(JSON.parse(this.responseText));
+      }
+    };
+
+    xhttp.open('get', `http://localhost:5000/sample?task=${taskId}`, true);
+    xhttp.send();
+  }
+
+  function changeContextAndQuestion(sample) {
+    document.querySelector('.context').value = '';
+    // document.querySelector('.context').placeholder = sample.sample[0];
+    document.querySelector('.context').placeholder = 'You can enter your context';
+    document.querySelector('.question').value = '';
+    // document.querySelector('.question').placeholder = sample.sample[1];
+    document.querySelector('.question').placeholder = 'You can enter your question';
+  }
+
+
+  function sendNewContextAndQuestion() {
+    const xhttp = new XMLHttpRequest();
+
+    const taskId = document.querySelector('#task-selector').value;
+    const story = document.querySelector('.context').value;
+    const question = document.querySelector('.question').value;
+
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        showAnswer(JSON.parse(this.responseText));
+      }
+    }
+
+    let jsonString = {
+      // "story": "Sandra journeyed to hallway. Daniel journeyed to kitchen.",
+      "story": story,
+      // "question": "Where is Sandra?"
+      question: question
+    };
+    xhttp.open('post', `http://localhost:5000/post?task=${taskId}`, true);
+    xhttp.setRequestHeader("Content-Type", "application/json");
+    xhttp.send(JSON.stringify(jsonString));
+  }
+
+  function showAnswer(response) {
+    document.querySelector('.answer-column').style.marginLeft = '260px';
+    document.querySelector('#answer').innerText = response.Answer;
+  }
+
+  function loadWords(words) {
+    console.log(words, 'words');
+
+    let dotIndex = words.indexOf('.');
+
+    if (dotIndex != -1) {
+      words.splice(dotIndex, 1);
+    }
+
+    let commaIndex = words.indexOf(',');
+
+    if (commaIndex != -1) {
+      words.splice(commaIndex, 1);
+    }
+
+    let questionMarkIndex = words.indexOf('?');
+
+    if (questionMarkIndex != -1) {
+      words.splice(questionMarkIndex, 1);
+    }
+
+    let count = 0;
+
+    const rowDiv = document.createElement('div');
+    rowDiv.className = 'row words-row';
+
+    words.forEach(word => {
+      let wordElement = document.createElement("span");
+
+      wordElement.className = "badge mr-3 badge-outline-secondary";
+      wordElement.style.margin = '5px';
+      wordElement.innerText = word;
+      rowDiv.appendChild(wordElement);
+    });
+
+    console.log(rowDiv);
+    document.querySelector('.word-container').innerHTML = '';
+    document.querySelector('.word-container').appendChild(rowDiv);
+  }
+</script>
+
+</html>
