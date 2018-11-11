@@ -63,7 +63,7 @@
               <!-- <img class="card-img-top" src="images/demo/stock-photos/3.jpg" alt="Card image cap"> -->
               <div class="card-body">
                 <h4 class="card-title">Demo Chat</h4>
-                <h4>Tasks</h4>
+                <!-- <h4>Tasks</h4>
                 <div class="col-lg-10 col-md-12 ml-auto mr-auto mb-auto">
                   <div class="row">
                     <select class="custom-select" id="task-selector" style="width: 90%" required="">
@@ -94,7 +94,7 @@
                 <h4 style="margin-top: 5%">Words</h4>
                 <div class="col-lg-10 col-md-12 ml-auto mr-auto word-container">
                   <p style="margin-left: 20%">Words to build the context</p>
-                </div>
+                </div> -->
                 <h4 style="margin-top: 5%">Context</h4>
                 <div class="col-lg-10 col-md-12 ml-auto mr-auto mb-auto">
                   <div class="row mb-2" style="width: 95%">
@@ -284,9 +284,9 @@
   function sendNewContextAndQuestion() {
     const xhttp = new XMLHttpRequest();
 
-    const taskId = document.querySelector('#task-selector').value;
     const story = document.querySelector('.context').value;
     const question = document.querySelector('.question').value;
+    const taskId = findTaskForInput(story, question);
 
     xhttp.onreadystatechange = function () {
       if (this.readyState == 4 && this.status == 200) {
@@ -349,6 +349,90 @@
     document.querySelector('.word-container').innerHTML = '';
     document.querySelector('.word-container').appendChild(rowDiv);
   }
+
+  function findTaskForInput(context, question) {
+      //1 17
+       if (context.includes("square") || context.includes("triangle")) {
+        return "17";
+      } 
+      //2 14
+      else if (context.includes("afternoon") || context.includes("evening")) {
+        return "14";
+      }
+      //3 10
+       else if (context.includes("either")) {
+        return "10";
+      } 
+      //4 19
+      else if (question === "How do you go ?") {
+        return "19";
+      } 
+      //5 20
+      else if (question.includes("Why did") | question.includes("Where does")) {
+        return "20";
+      } 
+      //6 18
+      else if (context.includes("fit")) {
+        return "18";
+      } 
+      //7 16
+      else if (question.includes("What color is")) {
+        return "16";
+      } 
+      //8 7
+      else if (question.includes("How many")) {
+        return "7";
+      } 
+      //9 3
+      else if (question.includes("Where was the") || question.includes("before")) {
+        return "3";
+      } 
+      //10 15
+      else if (context.includes("afraid")) {
+        return "15";
+      } 
+      // 11 13
+      else if (context.includes("after that")) {
+        return "13";
+      } 
+      //12 9
+      else if (context.includes("no longer")) {
+        return "9";
+      } 
+      //13 7
+      else if (question.includes("How many")) {
+        return "7";
+      } 
+      //14 4
+      else if (question.includes("north") | question.includes("south") | question.includes("east") | question.includes("west")) {
+        return "4";
+      } 
+      //15 8
+      else if (question.includes("What is")) {
+        return "8";
+      } 
+      //16 3
+      else if (question.includes("Where was the")) {
+        return "3";
+      } 
+      //17 12
+      else if (question.includes("and")) {
+        return "12";
+      } 
+      //18 2
+      else if (question.includes("Where is the")) {
+        return "2";
+      } 
+      //19 1
+      else if (question.includes("Where is")) {
+        return "1";
+      } 
+      //20 6
+      else {
+        "return 6";
+      }
+    }
+ 
 </script>
 
 </html>
