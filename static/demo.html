@@ -352,7 +352,7 @@
 
   function findTaskForInput(context, question) {
       //1 17
-       if (context.includes("square") || context.includes("triangle")) {
+      if (context.includes("square") || context.includes("triangle")) {
         return "17";
       } 
       //2 14
@@ -364,11 +364,11 @@
         return "10";
       } 
       //4 19
-      else if (question === "How do you go ?") {
+      else if (question.includes("How do you go")) {
         return "19";
       } 
       //5 20
-      else if (question.includes("Why did") | question.includes("Where does")) {
+      else if (question.includes("Why did") | question.includes("Where does") | question.includes("Where will")) {
         return "20";
       } 
       //6 18
@@ -392,16 +392,16 @@
         return "15";
       } 
       // 11 13
-      else if (context.includes("after that")) {
+      else if (context.includes("After that") | context.includes("Following that")) {
         return "13";
       } 
       //12 9
       else if (context.includes("no longer")) {
         return "9";
       } 
-      //13 7
-      else if (question.includes("How many")) {
-        return "7";
+      //13 5
+      else if (question.includes("Who did") | question.includes("What did")) {
+        return "5";
       } 
       //14 4
       else if (question.includes("north") | question.includes("south") | question.includes("east") | question.includes("west")) {
@@ -411,9 +411,9 @@
       else if (question.includes("What is")) {
         return "8";
       } 
-      //16 3
-      else if (question.includes("Where was the")) {
-        return "3";
+      //16 11
+      else if (context.includes(" he ") | context.includes(" she ")) {
+        return "11";
       } 
       //17 12
       else if (question.includes("and")) {
@@ -429,7 +429,7 @@
       } 
       //20 6
       else {
-        "return 6";
+        return "6";
       }
     }
  
