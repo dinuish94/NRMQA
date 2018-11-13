@@ -185,6 +185,8 @@ input_encoder_m.add(Embedding(input_dim=vocab_size,
                               output_dim=64))
 
 input_encoder_m.add(Dropout(0.3))
+
+print(input_encoder_m, 'input encoded m');
 # output: (samples, story_maxlen, embedding_dim)
 
 # embed the input into a sequence of vectors of size query_maxlen
